@@ -7,7 +7,6 @@ import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import { BrowserRouter } from "react-router-dom";
 
-// dark mode
 const styles = {
 	global: (props) => ({
 		body: {
@@ -18,11 +17,11 @@ const styles = {
 };
 
 const config = {
-	initialColorMode: "light",
+	initialColorMode: "dark",
 	useSystemColorMode: false,
 };
 
-
+// 3. extend the theme
 const theme = extendTheme({ config, styles });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
