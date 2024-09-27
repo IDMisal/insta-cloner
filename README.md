@@ -1,30 +1,96 @@
-# Welcome to My Pokemon App
+# Welcome to My Instagram
 ***
+## Demo
+You can check out the demo of this Instagram clone [here](https://insta-cloner.vercel.app/).
 
 ## Task
-Develop a multi-page Pokémon application using ReactJS that displays a list of Pokémon with lazy loading, provides a search bar to filter Pokémon, and shows details of a specific Pokémon. The application will use an external API and handle errors such as no internet connection or bad requests.
+Development of an Instagram clone using ReactJS and Firebase that allows users to create accounts, post images, follow other users, and interact with posts through likes and comments. 
+The application should feature modern social media functionalities including filters, direct messaging, and a user-friendly design.
 
 ## Description
-This Pokémon app is designed to provide a seamless browsing experience for Pokémon enthusiasts. The main features include:
+This Instagram clone aims to replicate key features of the popular social media platform, Instagram. The main features include:
 
-Home Page: Displays a list of Pokémon with lazy loading.
-Detail Page: Shows detailed information about a selected Pokémon.
-Search Functionality: Allows users to filter Pokémon by name.
-Error Handling: Manages errors such as network issues or bad requests.
+- **Login and Signup**: User authentication with Firebase for secure login and signup.
+- **Post Creation**: Users can create posts with text, images (with filters), and videos.
+- **Follow and Unfollow**: Ability to follow or unfollow users and see posts from followed accounts.
+- **Likes, Comments, and Shares**: Users can like, comment, and share posts.
+- **Profile Customization**: Edit profiles, change bio, avatar, and social links.
+- **Explore**: Discover trending posts, hashtags, and users.
+
+You can check out the demo of this Instagram clone [here](https://insta-cloner.vercel.app/).
+
+## Firebase Configuration  
+To connect the application to Firebase, follow these steps:
+
+    - 1. **Create a Firebase project** on [Firebase Console](https://console.firebase.google.com/).
+    - 2. **Add a web app** to the Firebase project and obtain your Firebase configuration object.
+    - 4. Enable Authentication: Go to Firebase Console, navigate to Authentication, and enable Email/Password sign-in.
+    - 4. Set Up Firestore Database: Create necessary collections for users and posts.
+    - 5. Set Up Storage: Use Firebase Storage to upload images and media for posts.
+    - 6. Replace the placeholder in your project with the actual Firebase configuration in `firebase.js`:
+
+        // firebase.js
+        import { initializeApp } from "firebase/app";
+        import { getFirestore } from "firebase/firestore";
+        import { getAuth } from "firebase/auth";
+        import { getStorage } from "firebase/storage";
+
+        const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const firestore = getFirestore(app);
+        const auth = getAuth(app);
+        const storage = getStorage(app);
+
+        export { firestore, auth, storage };
+
 
 ## Installation
-1. Clone the repository:
-git clone <https://git.us.qwasar.io/my_pokemon_app_169706_qzrmxj/my_pokemon_app.git>
-cd pokemon-app
-2. Install dependencies:
-npm install
-3. Start the development server:
-npm start
+
+  1. Clone the repository:
+        - `git clone https://git.us.qwasar.io/my_instagram_169946_bcn2od/my_instagram.git`  
+        - `cd my_instagram`  
+  2. Install dependencies:
+        - `npm install`
+  3. Start the development server:
+        - `npm run dev`
 
 ## Usage
-Home Page: Scroll down to load more Pokémon. Use the search bar at the top to filter Pokémon by name.
-Detail Page: Click on any Pokémon on the home page to view its details.
-Error Handling: If there is a network issue or a bad request, an appropriate error message will be displayed.
+1. Login and Signup: Create an account or log in using your credentials.
+2. Create Post: Click the "Create Post" button to add a new post with text or media.
+3. Interact with Posts: Like, comment, and share posts.
+4. Follow and Unfollow: Search for users, follow them, and see their posts in your feed.
+5. Profile Customization: Edit your profile from the profile page by updating your bio and avatar.
+
+ * For production, You can check out the demo of this Instagram clone [here](https://insta-cloner.vercel.app/).
+ 
+ # Issues Encountered
+While building this Instagram clone, several challenges arose:
+
+1. Firebase Authentication Setup:
+    - Initially, there were issues configuring Firebase Authentication due to an incorrect API key and missing project settings.
+    - Solution: Verified Firebase setup and regenerated API keys to match the project.
+
+2. Large Bundle Size Warning (Vite):
+    - After building the project, a warning appeared about some chunks being larger than 500 kB.
+    - Solution: Implemented code splitting with import() to load certain modules dynamically, optimizing the bundle size.
+
+3. Image Upload with Firebase Storage:
+    - There were difficulties managing Firebase Storage when uploading images, particularly handling file size and format restrictions.
+    - Solution: Implemented validation checks before upload, ensuring files meet the size and format requirements.
+4. React Component Re-Rendering Issues:
+    - The profile page and post list had unnecessary re-renders, slowing down the app's performance.
+    - Solution: Utilized React.memo() and optimized state management to reduce unnecessary re-renders.
+
+5. Chakra UI Learning Curve:
+    - Chakra UI provided a powerful, flexible design system, but initially, there was a learning curve in customizing components to fit the Instagram-like design.
 
 ### The Core Team
 
