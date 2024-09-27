@@ -55,7 +55,6 @@ To connect the application to Firebase, follow these steps:
 ## Installation
 
   1. Clone the repository:
-        - `git clone https://git.us.qwasar.io/my_instagram_169946_bcn2od/my_instagram.git`  
         - `cd my_instagram`  
   2. Install dependencies:
         - `npm install`
